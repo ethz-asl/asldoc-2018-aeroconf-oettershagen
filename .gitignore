@@ -1,0 +1,16 @@
+*.fig
+*.ai
+*.psd
+*.mat
+*.aux
+*.blg
+*.out
+*.bbl
+*.bcf
+*.log
+*.xml
+*.gz
+*.bak
+*.sav
+paper_localplanning.pdf
+backups/

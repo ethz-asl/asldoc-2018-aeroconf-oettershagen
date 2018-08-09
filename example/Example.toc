@@ -1,0 +1,51 @@
+\contentsline {subsubsection}{\bfseries Abstract}{1}
+\contentsline {section}{\numberline {1.}Introduction}{1}
+\contentsline {section}{\numberline {2.}Paper Organization}{1}
+\contentsline {subsection}{Title}{1}
+\contentsline {subsection}{Author(s)}{1}
+\contentsline {subsection}{Abstract}{1}
+\contentsline {subsection}{Table of Contents}{1}
+\contentsline {subsection}{Introduction}{1}
+\contentsline {subsection}{Body}{1}
+\contentsline {subsection}{Conclusions}{2}
+\contentsline {subsection}{References}{2}
+\contentsline {subsection}{Biography}{2}
+\contentsline {subsection}{Additions}{2}
+\contentsline {section}{\numberline {3.}Manuscript Style}{2}
+\contentsline {subsection}{Paper Length}{2}
+\contentsline {subsection}{Copyright Notice}{2}
+\contentsline {subsection}{Paper, Margins, and Spacing}{2}
+\contentsline {subsection}{Headers and Footers}{2}
+\contentsline {subsection}{Headings}{2}
+\contentsline {subsubsection}{Major Headings}{2}
+\contentsline {subsubsection}{Subheadings}{2}
+\contentsline {subsubsection}{Subsubheadings}{2}
+\contentsline {subsection}{Other Elements}{2}
+\contentsline {subsubsection}{Equations}{2}
+\contentsline {subsubsection}{Figures}{2}
+\contentsline {subsubsection}{Tables}{2}
+\contentsline {subsubsection}{Footnotes}{2}
+\contentsline {section}{\numberline {4.}Paper Submission}{2}
+\contentsline {subsection}{Abstract}{2}
+\contentsline {subsection}{Review Paper}{2}
+\contentsline {subsection}{Final Paper}{3}
+\contentsline {subsection}{IEEE copyright Form}{3}
+\contentsline {subsection}{ITAR Compliance}{3}
+\contentsline {subsection}{Organizational Approval}{3}
+\contentsline {subsection}{Submission to the \relax $\@@underline {\hbox {www.aeroconf.org}}\mathsurround \z@ $\relax website}{3}
+\contentsline {section}{\numberline {5.}Presentation at the Conference}{3}
+\contentsline {subsection}{Allotted Time}{3}
+\contentsline {subsection}{Projection}{3}
+\contentsline {subsection}{Presentation}{3}
+\contentsline {subsection}{Special Displays}{3}
+\contentsline {section}{\numberline {6.}Best Paper Award and Publication}{3}
+\contentsline {subsection}{Best Paper Award}{3}
+\contentsline {subsection}{Publication}{4}
+\contentsline {section}{\numberline {7.}Summary}{4}
+\contentsline {section}{Appendices}{4}
+\contentsline {section}{\numberline {A.}More Information}{4}
+\contentsline {subsection}{Comments}{4}
+\contentsline {subsection}{More Comments}{4}
+\contentsline {section}{\numberline {B.}Yet More Information}{4}
+\contentsline {section}{Acknowledgments}{4}
+\contentsline {section}{Biography}{4}

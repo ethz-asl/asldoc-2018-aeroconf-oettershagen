@@ -1,0 +1,54 @@
+\tikzstyle{base} = [draw, text width=5em, minimum height=3.5em]
+\tikzstyle{process} = [base, rectangle, text centered, text width=10em, minimum height=3em, fill=blue!15]
+\tikzstyle{extprocess} = [base, rectangle, text centered, text width=10em, minimum height=3em, fill=green!15]
+\tikzstyle{inout} = [base, trapezium, trapezium left angle=70, trapezium right angle=-70, text badly centered, trapezium stretches=true, fill=orange!15]
+\tikzstyle{line} = [draw, -latex']
+
+\begin{tikzpicture}[node distance=1.2cm, scale=0.75, every node/.style={transform shape}]
+\node [inout] (nwp) {NWP \\ data};
+\node [inout, left of=nwp, node distance=2.2cm] (dem) {DEM \\ data};
+\node [inout, right of=nwp, node distance=2.2cm] (simparam) {simulation parameters};
+
+\coordinate [below of=nwp, node distance=0.8cm] (inputs);
+
+\node [extprocess, below of=inputs, node distance=0.8cm] (updated) {updated?};
+\coordinate [right of=updated, node distance=2.5cm] (updatedDecision);
+\coordinate [below of=updatedDecision,node distance=0.8cm] (updatedDecisionNo1);
+\coordinate [below of=updated,node distance=0.8cm] (updatedDecisionNo2);
+
+\node [process, right of=updatedDecision, node distance=3.0cm] (init) {initialize model with DEM, NWP and simulation parameters};
+\node [process, below of=init, node distance=4.2em] (grid) {create grid and interpolate NWP data to its nodes};
+\node [process, below of=grid, node distance=3.9em] (fem_setup) {set up weak formulation of FEM problem \eqref{eqn:PL_WindPred_weak_form}};
+\node [process, below of=fem_setup, node distance=3.8em] (vel_pot) {solve for velocity potential $\lambda$};
+\node [process, below of=vel_pot, node distance=3.8em] (pred) {add potential field to initial wind field \eqref{eqn:PL_WindPred_wind_pred}};
+\node [inout, left of=pred, node distance=5.5cm] (windfield) {adjusted wind field};
+\node [extprocess, below of=windfield,node distance=1.4cm] (planner) {flight planner};
+
+\path [line] (dem) |- (inputs) -- (updated);
+\path [line] (nwp) -- (updated);
+\path [line] (simparam) |- (inputs) -- (updated);
+\path [draw] (updated) -- (updatedDecision);
+\path [line] (updatedDecision) |- (updatedDecisionNo2) -- (updated);
+\path (updatedDecision) edge node[right]{No} (updatedDecisionNo1);
+\path (updatedDecisionNo1) edge node [below,color=gray]{0.5 Hz} (updatedDecisionNo2);
+
+\path (updatedDecision) edge[-latex'] node[above]{Yes} (init);
+\path [line] (init) -- (grid);
+\path [line] (grid) -- (fem_setup);
+\path [line] (fem_setup) -- (vel_pot);
+\path [line] (vel_pot) -- (pred);
+\path [line] (pred) -- (windfield);
+\path [line] (windfield) -- (planner);
+
+%Legend %0.35
+\node (legend_data) at ( 6.9,-8.2) [text width=2em, minimum height=1em, fill=orange!15,label=left:Data] {};
+\node (legend_process) [text width=2em, minimum height=1em, fill=blue!15,below of=legend_data, node distance=0.35cm, label=left:Wind model calculation] {};
+\node (legend_extprocess) [text width=2em, minimum height=1em, fill=green!15,below of=legend_process, node distance=0.35cm, label=left:External process] {};
+
+\end{tikzpicture}
+
+%\path [line] (updatedDecisionNo2) -- (updated);
+%\path (updatedDecision) | (updated);
+%\path [line] (updatedDecision) (init);
+%edge["Yes"']
+%\path [line] (updatedDecision) -- (init);
