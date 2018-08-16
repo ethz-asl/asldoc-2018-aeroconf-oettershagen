@@ -150,7 +150,11 @@ Due to a lack of environment awareness, today's low-altitude fixed-wing Unmanned
 \acro{SAR}{Search and Rescue}
 \acro{PID}{Proportional-Integral-Derivative}
 \acro{FCL}{Flexible Collision Library}
+\acro{CNN}{Convolutional Neural Network}
 \end{acronym}
+
+\acrodefplural{CNN}[CNN's]{Convolutional Neural Networks}
+
 
 %\tableofcontents
 
@@ -565,7 +569,10 @@ However, to reach the vertical wind accuracy required for fragile low-power UAVs
 \end{itemize}
 
 If, after implementing those extensions, the current method still does not prove accurate enough, then methods which do not only \emph{adjust} the initial wind field $\vec{u}^\text{I}$, but which completely \emph{recalculate} it will be investigated. Such methods are more complex and closer to \ac{CFD} approaches, and may require machine learning techniques to speed up the calculation.
-\note{@Florian this is where you describe the better methods (CFD, machine learning, etc. methods which are still capable of real-time operation. Use some citations if you like).}
+
+The feasibility of machine learning techniques to speed up fluid simulations has been shown for example in the fields of computer vision and aerodynamic design. In computer vision \acp{CNN} are used to to speed up fluid simulations by either replacing parts of fluid solvers such as the pressure correction \cite{Tompson2017AEF} or not using a fluid solver at all \cite{Kim2018DeepFluids}. Other approaches use a hybrid LSTM-\ac{CNN} network \cite{Wiewel2018LSP} or a regression forest \cite{Ladicky2015DFS}. The resulting networks speed up the generation of fluid flows up to three orders of magnitudes compared to state-of-the-art fluid solvers. However, those methods developed in computer vision compute how the flow will develop over time and focus on the stability of such a solution instead of the accuracy in the predicted velocity field.
+
+When predicting the wind field over complex terrain only the steady state wind is required and a high velocity accuracy is desired. Umetani and Bickel \cite{Umetani2018LTF} present an machine learning approach for aerdynamic design where they use a Gaussian Progress Regressor to predict the drag coeffienct of an object and the velocity field around it. The \ac{CNN} proposed by Guo et al. \cite{Guo2016CNN} predicts the steady laminar flow around objects and achieve a speed up of up to four order of magnitudes compared to a Lattice Boltzmann Method solver \cite{McNamara1988LBM}. All in all, the presented methods show the feasibility of machine learning methods to replace and speed up current state-of-the-art fluid solvers. However, for accurately predicting the wind over complex terrain the methods still need to be adopted and improved accordingly.
 
 %If sufficient computation time is available, then the time-optimal planner's cost advantage over the shortest-path planner increases with wind speed. However, more important than the optimality of the path is its feasibility: While the wind-aware planner always produces collision-free paths in wind, the shortest path often results in terrain collisions. For safe flight through cluttered terrain and complex wind fields, there is therefore no alternative to using a wind-aware path planner.
 
