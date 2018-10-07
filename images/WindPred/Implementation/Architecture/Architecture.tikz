@@ -13,8 +13,8 @@
 
 \node [extprocess, below of=inputs, node distance=0.8cm] (updated) {updated?};
 \coordinate [right of=updated, node distance=2.5cm] (updatedDecision);
-\coordinate [below of=updatedDecision,node distance=0.8cm] (updatedDecisionNo1);
-\coordinate [below of=updated,node distance=0.8cm] (updatedDecisionNo2);
+\coordinate [below of=updatedDecision,node distance=1.2cm] (updatedDecisionNo1);
+\coordinate [below of=updated,node distance=1.2cm] (updatedDecisionNo2);
 
 \node [process, right of=updatedDecision, node distance=3.0cm] (init) {initialize model with DEM, NWP and simulation parameters};
 \node [process, below of=init, node distance=4.2em] (grid) {create grid and interpolate NWP data to its nodes};
@@ -30,7 +30,7 @@
 \path [draw] (updated) -- (updatedDecision);
 \path [line] (updatedDecision) |- (updatedDecisionNo2) -- (updated);
 \path (updatedDecision) edge node[right]{No} (updatedDecisionNo1);
-\path (updatedDecisionNo1) edge node [below,color=gray]{0.5 Hz} (updatedDecisionNo2);
+\path (updatedDecisionNo1) edge node [above,color=gray]{0.5 Hz} (updatedDecisionNo2);
 
 \path (updatedDecision) edge[-latex'] node[above]{Yes} (init);
 \path [line] (init) -- (grid);
@@ -39,6 +39,7 @@
 \path [line] (vel_pot) -- (pred);
 \path [line] (pred) -- (windfield);
 \path [line] (windfield) -- (planner);
+\path [line] (windfield) -- (updated);
 
 %Legend %0.35
 \node (legend_data) at ( 6.9,-8.2) [text width=2em, minimum height=1em, fill=orange!15,label=left:Data] {};
